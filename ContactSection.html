@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="assests/css/contactme.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"/>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,400;0,500;0,600;0,800;1,900&display=swap" rel="stylesheet">
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Section</title>
+</head>
+<body>
+	<div class="container">
+		<main class="row">
+			<section class="col left">
+				<div class="contactTitle">
+					<h2>Get In Touch</h2>
+					<p>Got a question or want to say hi? Use the form below or reach out to me directly. I'll respond as soon as I can!</p>
+				</div>
+				<div class="contactInfo">
+					<div class="iconGroup">
+						<div class="icon">
+							<i class="fa-solid fa-phone"></i>
+						</div>
+						<div class="details">
+							<span>Phone</span>
+							<span>+91 93803 25924</span>
+						</div>
+					</div>
+					<div class="iconGroup">
+						<div class="icon">
+							<i class="fa-solid fa-envelope"></i>
+						</div>
+						<div class="details">
+							<span>Email</span>
+							<span>sooriya.work@gmail.com</span>
+						</div>
+					</div>
+				</div>
+				<div class="socialMedia">
+					<a href="https://www.facebook.com/share/19ofsV9pfk/"><i class="fa-brands fa-facebook-f"></i></a>
+					<a href="https://github.com/Sooriya04"><i class="fa-brands fa-github"></i></a>
+					<a href="https://www.instagram.com/ucdshso/profilecard/?igsh=MWlkc3h6cXZrOTF2NA=="><i class="fa-brands fa-instagram"></i></a>
+					<a href="https://www.linkedin.com/in/sooriyab/"><i class="fa-brands fa-linkedin-in"></i></a>
+				</div>
+			</section>
+			<section class="col right">
+				<form class="messageForm" action="https://api.web3forms.com/submit" method="post">
+    				<input type="hidden" name="access_key" value="f91a3bd1-daab-4de0-9518-f9cdbba2b0e1" />
+					<div class="inputGroup halfWidth">
+						<input type="text" name="name" required="required">
+						<label>Your Name</label>
+					</div>
+					<div class="inputGroup halfWidth">
+						<input type="email" name="email" required="required">
+						<label>Email</label>
+					</div>
+					<div class="inputGroup fullWidth">
+						<input type="text" name="" required="required">
+						<label>Subject</label>
+					</div>
+					<div class="inputGroup fullWidth">
+						<textarea required="required" name="message"></textarea>
+						<label>Say Something</label>
+					</div>
+					<div class="inputGroup fullWidth">
+						<button type="submit">Send Message</button>
+					</div>
+				</form>
+			</section>
+		</main>
+	</div>
+	<div class="d-flex">
+		<a href="index.html" class="btn button-1">
+			Back To Homepage
+		</a>
+	</div>
+</body>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+	AOS.init();
+  </script>
+</html>
