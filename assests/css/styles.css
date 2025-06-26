@@ -62,7 +62,6 @@ a {
 .button-1::before {
   content: "";
   background: #4d4d4d;
-  /*border: 2px solid #4d4d4d;*/
   width: 120%;
   left: -10%;
   transform: skew(30deg);
@@ -85,7 +84,7 @@ a {
   color: #fff;
   outline: none;
   text-decoration: none;
-  -webkit-tap-highlight-color: transparent; /* removes grey box on mobile tap */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .button-2:focus,
@@ -208,7 +207,6 @@ i {
   font-size: 100px;
   font-weight: 900;
 }
-/* Project Tile Styling */
 .project-tile {
   background-color: #e9ebee;
   border-radius: 12px;
