@@ -244,6 +244,7 @@ i {
   color: #0077cc;
   font-weight: 600;
   transition: color 0.3s;
+  cursor: pointer;
 }
 
 .project-links a:hover {
