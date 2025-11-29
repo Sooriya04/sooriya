@@ -1,9 +1,10 @@
 const jobRoles = [
-  'Web Developer',
-  'UI/UX Designer',
-  'Full-Stack Engineer',
-  'Tech Innovator',
-];
+  "Full-Stack Developer",
+  "AI Engineer",
+  "LLM & RAG Specialist",
+  "Tech Innovator"
+]
+
 let idx = 0,
   char = 0,
   forward = true;
