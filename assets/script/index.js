@@ -343,7 +343,15 @@ document.querySelectorAll('.nav-dot').forEach(dot => {
 });
 
 // Typing animation
-const jobTitles = ['Web Developer', 'Full Stack Developer', 'UI/UX Designer', 'AI Enthusiast'];
+const jobTitles = [
+    'MERN Developer',
+    'UI/UX Designer',
+    'AI Integration Developer',
+    'DevOps & Deployment Learner',
+        'RAG Developer'
+
+];
+
 let titleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
