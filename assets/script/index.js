@@ -249,12 +249,18 @@ const skillsData = [
         icon: 'assets/images/icons/vecteezy_rag-creative-icon-design_32082368.jpg',
         source: 'Learned RAG from a YouTube tutorial series and practiced it through hands-on retrieval-based AI projects.',
         link: 'https://youtube.com/playlist?list=PLNIQLFWpQMRUMjxfe8o6g3uzJ6LH_VotY&si=ovhG8ZDmSiXsQpv6'
-    }
+    },
+    {
+        name: '.NET Framework',
+        icon: 'assets/images/icons/dot-net.png',
+        source: 'Learned .NET Framework fundamentals including CLR, ASP.NET, C#, and application development concepts through a structured YouTube tutorial and practical implementation.',
+        link: 'https://youtu.be/RwQVRXEs370?si=XlfCuBTaZhlh7hXp'
+    },
+
 
 ];
 
 
-// Populate skills grid
 function populateSkills() {
     const skillsGrid = document.getElementById('skillsGrid');
     skillsGrid.innerHTML = '';
