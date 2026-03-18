@@ -1,16 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sooriya@dev ~ portfolio</title>
-    <meta name="description" content="Sooriya – B.Tech IT student and Full-Stack Developer. Explore my projects, skills, and experience." />
+    <title>sooriya@dev ~ terminal</title>
+    <meta name="description" content="Sooriya's Interactive Terminal Portfolio" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&display=swap"
+        rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
+
 <body>
+
     <!-- ─── TOP MENU BAR ─── -->
     <nav class="top-bar">
         <div class="top-bar-left">
@@ -22,232 +26,35 @@
             <span class="top-bar-title"><span>sooriya</span>@dev — bash</span>
         </div>
         <div class="top-bar-right">
-            <nav class="top-bar-nav">
-                <a href="#hero" class="active" id="nav-home">~/home</a>
-                <a href="#work" id="nav-work">~/work</a>
-                <a href="ContactSection.html">~/contact</a>
-            </nav>
             <span class="top-bar-time" id="clock">--:--:--</span>
         </div>
     </nav>
 
-    <div class="page-wrapper">
+    <!-- ─── TERMINAL CONTAINER ─── -->
+    <div class="terminal-container" id="terminal-wrapper">
+        <div id="terminal-output">
+            <!-- Boot Sequence and specific command outputs will go here -->
+        </div>
 
-        <!-- ─── HERO ─── -->
-        <section class="hero-section" id="hero">
-            <div class="hero-inner">
-                <div class="term-window hero-window">
-                    <div class="term-titlebar">
-                        <div class="dots">
-                            <div class="dot dot-red"></div>
-                            <div class="dot dot-yellow"></div>
-                            <div class="dot dot-green"></div>
-                        </div>
-                        <div class="term-tab active">bash</div>
-                        <div class="term-tab">ssh sooriya@github</div>
-                    </div>
-                    <div class="term-body boot-output">
-                        <div class="boot-line"><span class="tag">[  OK  ]</span><span class="info">Starting <span class="val">portfolio.service</span> …</span></div>
-                        <div class="boot-line"><span class="tag">[  OK  ]</span><span class="info">Loaded profile: <span class="val">~/.bashrc</span></span></div>
-                        <div class="boot-line"><span class="tag cyan">[ INFO ]</span><span class="info">Node: <span class="val">sooriya</span> &nbsp;|&nbsp; Role: <span class="val">Full-Stack Developer</span></span></div>
-                        <div class="boot-line"><span class="tag cyan">[ INFO ]</span><span class="info">OS: <span class="val">B.Tech IT, 3rd Year</span> &nbsp;|&nbsp; Status: <span class="val">Open to Work</span></span></div>
-                        <div class="boot-line"><span class="tag yellow">[ DEPS ]</span><span class="info">Loading skills… <span class="val">35 packages</span> installed</span></div>
-                        <div class="boot-line"><span class="tag">[  OK  ]</span><span class="info">Services: MongoDB, Node.js, React, Docker — <span class="val">running</span></span></div>
-                        <div class="boot-line"><span class="tag grey">[ HINT ]</span><span class="info">Type <span class="val">↓ scroll</span> to explore projects &amp; skills</span></div>
-
-                        <hr class="hero-divider" />
-
-                        <div class="hero-name-block">
-                            <div class="hero-name">Sooriya</div>
-                            <div class="hero-role">
-                                $&nbsp;<span id="typed-role"></span><span class="cursor"></span>
-                            </div>
-                        </div>
-
-                        <p class="hero-desc">
-                            B.Tech IT student building clean interfaces, full-stack apps,
-                            and practical AI tools. I love creating simple, useful, and
-                            well-designed digital experiences.
-                        </p>
-
-                        <div class="hero-actions">
-                            <button class="btn-term btn-primary" onclick="downloadCV()">
-                                <span class="prefix">$</span> ./download_cv.sh
-                            </button>
-                            <a href="ContactSection.html" class="btn-term btn-secondary">
-                                <span class="prefix">$</span> ssh contact@sooriya
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ─── WORK SECTION ─── -->
-        <section class="section" id="work">
-
-            <div class="section-header">
-                <span class="prompt">$</span>
-                <span class="cmd">ls</span>
-                <span class="arg">--all ./work/</span>
-                <hr />
-            </div>
-
-            <!-- Tab bar -->
-            <div class="tab-bar">
-                <button class="tab-btn active" data-target="projects" id="tab-projects">
-                    <i class="tab-icon">📁</i>projects/
-                </button>
-                <button class="tab-btn" data-target="skills" id="tab-skills">
-                    <i class="tab-icon">🛠</i>skills/
-                </button>
-            </div>
-
-            <!-- Projects -->
-            <div id="projects" class="content-section active">
-                <div class="projects-list">
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-meta">
-                                <span class="project-num">01</span>
-                                <span class="project-name">UnbiasMe</span>
-                            </div>
-                            <a href="https://github.com/Sooriya04/unbiasme" target="_blank" class="project-link">
-                                github →
-                            </a>
-                        </div>
-                        <p class="project-desc">
-                            A psychology-based web app that helps users discover their personality traits
-                            and cognitive biases using AI. Features quizzes, daily insights, and secure authentication.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                            <span class="tag">AI</span>
-                            <span class="tag">Auth</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-meta">
-                                <span class="project-num">02</span>
-                                <span class="project-name">Restmancer</span>
-                            </div>
-                            <a href="https://restmancer.vercel.app/" target="_blank" class="project-link">
-                                visit site →
-                            </a>
-                        </div>
-                        <p class="project-desc">
-                            A developer-focused platform to simulate realistic REST APIs with random but meaningful data.
-                            Built using Node.js, Express, and Faker.js.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">Express</span>
-                            <span class="tag">Faker.js</span>
-                            <span class="tag">REST API</span>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <div class="project-meta">
-                                <span class="project-num">03</span>
-                                <span class="project-name">Fogoe</span>
-                            </div>
-                            <a href="https://www.npmjs.com/package/fogoe" target="_blank" class="project-link">
-                                npm →
-                            </a>
-                        </div>
-                        <p class="project-desc">
-                            A lightweight Node.js CLI for bootstrapping backend projects with sensible defaults.
-                            Scaffold Express or Fastify setups in seconds using an interactive, zero-config workflow.
-                        </p>
-                        <div class="project-tags">
-                            <span class="tag">Node.js</span>
-                            <span class="tag">CLI</span>
-                            <span class="tag">Express</span>
-                            <span class="tag">Fastify</span>
-                            <span class="tag">npm</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Skills -->
-            <div id="skills" class="content-section">
-                <div class="skills-terminal">
-                    <div class="term-titlebar" style="font-size:12px;">
-                        <div class="dots">
-                            <div class="dot dot-red"></div>
-                            <div class="dot dot-yellow"></div>
-                            <div class="dot dot-green"></div>
-                        </div>
-                        <span style="margin-left:4px; color:var(--grey);">$ tree ./skills/ --depth 1</span>
-                    </div>
-                    <div class="skills-output" id="skillsGrid"></div>
-                </div>
-            </div>
-
-        </section>
-
-        <!-- ─── FOOTER ─── -->
-        <footer class="footer">
-            <span><span class="prompt">sooriya@dev</span>:~$ <span style="color:var(--grey)">exit</span></span>
-            <span>© Sooriya 2025 &nbsp;·&nbsp;
-                <a href="https://github.com/Sooriya04" target="_blank">github</a> &nbsp;·&nbsp;
-                <a href="https://www.linkedin.com/in/sooriyab/" target="_blank">linkedin</a>
-            </span>
-        </footer>
-
+        <!-- Live input prompt -->
+        <div class="input-line">
+            <span class="prompt"><span class="user">sooriya@dev</span>:<span class="path">~</span><span
+                    class="symbol">$</span></span>
+            <input type="text" id="cmd-input" autocomplete="off" spellcheck="false" autofocus />
+        </div>
     </div>
 
-    <!-- Status bar -->
+    <!-- ─── STATUS BAR ─── -->
     <div class="status-bar">
-        <span class="status-mode">NORMAL</span>
+        <span class="status-mode">INSERT</span>
         <span>sooriya@dev:~/portfolio</span>
         <span class="status-right">
             <span>UTF-8</span>
-            <span>LF</span>
-            <span id="status-line">ln:1 col:1</span>
+            <span>Type 'help' for commands</span>
         </span>
-    </div>
-
-    <!-- ─── SKILL MODAL ─── -->
-    <div class="skill-modal" id="skillModal">
-        <div class="modal-backdrop" onclick="closeSkillModal()"></div>
-        <div class="modal-content">
-            <div class="modal-header-bar">
-                <div class="dots">
-                    <div class="dot dot-red"></div>
-                    <div class="dot dot-yellow"></div>
-                    <div class="dot dot-green"></div>
-                </div>
-                <span style="margin-left:6px; color:var(--grey); font-size:12px;">skill info</span>
-                <button class="modal-close" onclick="closeSkillModal()" aria-label="Close">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                        <line x1="18" y1="6" x2="6" y2="18"/>
-                        <line x1="6" y1="6" x2="18" y2="18"/>
-                    </svg>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="modal-skill-header">
-                    <img id="modalIcon" class="modal-icon" src="" alt="" />
-                    <span class="modal-title-text" id="modalTitle"></span>
-                </div>
-                <div class="modal-source-label">// LEARNING_SOURCE</div>
-                <div class="modal-source-text" id="modalSource"></div>
-                <a id="modalLink" href="" target="_blank" class="modal-link" style="display:none;">
-                    View Resource →
-                </a>
-            </div>
-        </div>
     </div>
 
     <script src="assets/script/index.js"></script>
 </body>
+
 </html>
