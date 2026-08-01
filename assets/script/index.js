@@ -337,6 +337,35 @@ document.querySelectorAll('.toggle-option').forEach(option => {
     });
 });
 
+// Project Category Filtering
+const filterButtons = document.querySelectorAll('.filter-btn');
+const projectCards = document.querySelectorAll('.projects-grid .project-card');
+
+filterButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+
+        const filter = button.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+            const categories = card.getAttribute('data-category').split(' ');
+            if (filter === 'all' || categories.includes(filter)) {
+                card.style.display = 'block';
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(10px)';
+                setTimeout(() => {
+                    card.style.transition = 'all 0.4s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 50);
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+});
+
 // Navigation dots
 document.querySelectorAll('.nav-dot').forEach(dot => {
     dot.addEventListener('click', function() {
@@ -421,9 +450,157 @@ window.addEventListener('scroll', () => {
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
         closeSkillModal();
+        closeProjectModal();
     }
 });
+
+// Detailed Project Data Configuration
+const projectsDetailsData = {
+    unbiasme: {
+        title: "UnbiasMe",
+        category: "AI & Full-Stack",
+        description: "A psychology-based web application designed to help users identify their personality traits, cognitive biases, and psychological profiles using advanced AI-driven questionnaires. Features daily custom insights and interactive dashboard metrics.",
+        tags: ["AI", "React.js", "Python", "Flask", "Tailwind CSS", "MongoDB"],
+        architecture: "Uses an asynchronous Python backend combined with lightweight NLP models to calculate cognitive metrics. Session authentication and state are preserved using a secure Flask session layer and React state context.",
+        link: "https://github.com/Sooriya04/unbiasme"
+    },
+    searqon: {
+        title: "Searqon",
+        category: "Systems & CLI",
+        description: "An open-source, self-hosted web intelligence engine that searches, crawls, extracts, ranks, and synthesizes information from the internet. Built with concurrency in Go for ultra-low latency.",
+        tags: ["Go", "Concurrency", "Web Crawling", "Search Ranking", "Self-Hosted"],
+        architecture: "Leverages Go's goroutines and channels to concurrently query multiple index providers and search APIs, normalization algorithms to clean up raw results, and a custom keyword-density ranking engine.",
+        link: "https://sooriya04.github.io/Searqon/"
+    },
+    fogoe: {
+        title: "Fogoe",
+        category: "Systems & CLI",
+        description: "A zero-configuration, interactive scaffolding command-line tool built to bootstrap backend Node.js applications with Express or Fastify in seconds, utilizing robust pre-configured templates.",
+        tags: ["Node.js", "CLI", "Express", "Fastify", "npm Package"],
+        architecture: "Built using dynamic prompts (Inquirer.js) and filesystems operations to template boilerplate configurations, including optional ESLint, Prettier, Winston Logging, and Docker configuration.",
+        link: "https://www.npmjs.com/package/fogoe"
+    },
+    'research-copilot': {
+        title: "Research Copilot",
+        category: "AI & Agentic RAG Chat",
+        description: "Research Copilot is an autonomous AI research engineering platform that streamlines the research workflow—from discovering and analyzing scientific literature to reproducing experiments, exploring related work, and generating structured research drafts. It combines agentic workflows, retrieval-augmented generation, and code execution to help researchers understand, validate, and build upon existing research.",
+        tags: ["Python", "Agentic RAG", "Model Context Protocol (MCP)", "Knowledge Graphs", "Vector Database", "LLMs"],
+        architecture: "• Multi-agent architecture that coordinates literature search, paper analysis, code understanding, and experiment execution.\n• Agentic RAG pipeline integrating academic search engines, vector retrieval, and knowledge graphs for grounded research assistance.\n• MCP-powered code execution environment for reproducing research repositories and validating experimental results.\n• Automated extraction of methodologies, datasets, benchmarks, and citations from scientific papers.\n• Generates structured LaTeX research drafts, experiment summaries, and citation-aware reports.\n• Modular architecture designed to integrate additional research sources, execution environments, and AI models.",
+        link: "https://github.com/Sooriya04/Research-Copilot"
+    },
+    'tce-bonafide': {
+        title: "TCE Bonafide Application",
+        category: "Full-Stack Web App",
+        description: "A secure, production-grade bonafide request automation platform built for Thiagarajar College of Engineering, helping thousands of students request and download certificates seamlessly.",
+        tags: ["React (Vite)", "Express.js", "PostgreSQL", "Redis", "Passwordless OTP", "Winston Telemetry"],
+        architecture: "Migrated to a modern React + Express + PostgreSQL database stack. Uses Redis for connecter-session cache and dashboard listings caching, Winston tables for diagnostic logs, and Node-Cron for scheduled garbage collection.",
+        link: "https://github.com/Sooriya04/TCE-Bonafide-Application"
+    },
+    sourcebook: {
+        title: "Sourcebook",
+        category: "AI & Agentic RAG Chat",
+        description: "Sourcebook is a provider-agnostic internet retrieval engine built in Go that aggregates information from multiple search providers, extracts and normalizes heterogeneous web content, and produces structured, citation-aware knowledge for AI applications. Designed as the retrieval layer for Agentic RAG systems, it combines hybrid lexical and semantic search to deliver grounded, high-quality context.",
+        tags: ["Go", "BM25", "Vector Embeddings", "HTML Parsing", "REST APIs", "Concurrency"],
+        architecture: "• Concurrent multi-provider retrieval using Go goroutines, channels, and worker pools.\n• Unified schema that normalizes heterogeneous responses from multiple search providers.\n• HTML content extraction and preprocessing for downstream indexing and retrieval.\n• Hybrid retrieval combining BM25 ranking with vector embeddings for improved relevance.\n• Citation-aware knowledge objects designed for Agentic RAG pipelines.\n• Modular provider architecture that allows new search engines and data sources to be integrated with minimal changes.",
+        link: "https://github.com/Sooriya04/Sourcebook"
+    }
+};
+
+function openProjectDetails(projectId) {
+    const project = projectsDetailsData[projectId];
+    if (!project) return;
+
+    document.getElementById('projectModalTitle').textContent = project.title;
+    document.getElementById('projectModalCategory').textContent = project.category;
+    document.getElementById('projectModalDescription').textContent = project.description;
+
+    const tagsContainer = document.getElementById('projectModalTags');
+    tagsContainer.innerHTML = '';
+    project.tags.forEach(tag => {
+        const span = document.createElement('span');
+        span.className = 'modal-tag';
+        span.textContent = tag;
+        tagsContainer.appendChild(span);
+    });
+
+    const architectureSection = document.getElementById('projectModalArchitectureSection');
+    const architectureContent = document.getElementById('projectModalArchitecture');
+    if (project.architecture) {
+        architectureContent.textContent = project.architecture;
+        architectureSection.style.display = 'block';
+    } else {
+        architectureSection.style.display = 'none';
+    }
+
+    const modalLink = document.getElementById('projectModalLink');
+    if (project.link) {
+        modalLink.href = project.link;
+        modalLink.style.display = 'inline-flex';
+    } else {
+        modalLink.style.display = 'none';
+    }
+
+    const modal = document.getElementById('projectModal');
+    modal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('projectModal');
+    modal.classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
 
 // Initialize
 populateSkills();
 typeEffect();
+
+// Set current year dynamically
+const yearElement = document.getElementById('current-year');
+if (yearElement) {
+    yearElement.textContent = new Date().getFullYear();
+}
+
+// Theme Toggle Logic
+const themeToggle = document.getElementById('themeToggle');
+const currentTheme = localStorage.getItem('theme');
+
+if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+}
+
+if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        let theme = 'light';
+        if (document.body.classList.contains('dark-mode')) {
+            theme = 'dark';
+        }
+        localStorage.setItem('theme', theme);
+    });
+}
+
+// Scroll progress indicator
+window.addEventListener('scroll', () => {
+    const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    const scrolled = (winScroll / height) * 100;
+    const progress = document.getElementById('scrollProgressBar');
+    if (progress) {
+        progress.style.width = scrolled + '%';
+    }
+});
+
+// Spotlight Card Hover Coordinates Follower
+document.querySelectorAll('.projects-grid').forEach(grid => {
+    grid.addEventListener('mousemove', (e) => {
+        const cards = grid.querySelectorAll('.project-card');
+        cards.forEach(card => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            card.style.setProperty('--mouse-x', `${x}px`);
+            card.style.setProperty('--mouse-y', `${y}px`);
+        });
+    });
+});
