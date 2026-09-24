@@ -4,9 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sooriya - Web Developer</title>
+    <title>Sooriya - Full Stack & AI Engineer</title>
+    <meta name="description" content="Portfolio of Sooriya - Full-stack developer, AI/RAG engineer, and systems builder creating high-performance web applications and autonomous AI tools." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 
@@ -16,11 +21,39 @@
         <div class="scroll-progress-bar" id="scrollProgressBar"></div>
     </div>
 
-    <!-- Navigation Dots -->
-    <div class="nav-bar">
-        <div class="nav-dot active" data-section="hero"></div>
-        <div class="nav-dot" data-section="work"></div>
-        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Theme">
+    <!-- Floating Navigation Bar -->
+    <nav class="nav-bar" id="mainNavbar">
+        <a href="#hero" class="nav-item active" data-section="hero">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span class="nav-label">Home</span>
+        </a>
+        <a href="#work" class="nav-item" data-section="work" onclick="switchTab('projects')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span class="nav-label">Projects</span>
+        </a>
+        <a href="#work" class="nav-item" data-section="skills" onclick="switchTab('skills')">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span class="nav-label">Skills</span>
+        </a>
+        <a href="#contact" class="nav-item" data-section="contact">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+            </svg>
+            <span class="nav-label">Contact</span>
+        </a>
+        <div class="nav-divider"></div>
+        <button id="themeToggle" class="theme-toggle" aria-label="Toggle Dark/Light Mode" title="Toggle Theme">
             <!-- Sun Icon -->
             <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                 <circle cx="12" cy="12" r="5"></circle>
@@ -38,41 +71,116 @@
                 <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
             </svg>
         </button>
-    </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero-section" id="hero">
+        <div class="hero-bg-glow"></div>
         <div class="hero-content">
-            <div class="row align-items-center g-5">
-                <div class="col-lg-5" data-aos="fade-right" data-aos-duration="1000">
-                    <div class="profile-image-wrapper">
-                        <div class="profile-glow"></div>
-                        <img src="assets/images/pic.png" alt="Sooriya" class="profile-image">
-                        <div class="floating-badge badge-1">AI Engineer</div>
-                        <div class="floating-badge badge-2">Full Stack</div>
+            <div class="row align-items-center g-4 g-lg-5">
+                <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-right" data-aos-duration="900">
+                    <div class="hero-terminal-container">
+                        <div class="hero-terminal-glow"></div>
+                        <div class="developer-terminal">
+                            <div class="terminal-header">
+                                <div class="terminal-dots">
+                                    <span class="dot dot-close"></span>
+                                    <span class="dot dot-min"></span>
+                                    <span class="dot dot-expand"></span>
+                                </div>
+                                <div class="terminal-title">
+                                    <i class="fas fa-terminal me-1"></i> sooriya@workspace: ~
+                                </div>
+                            </div>
+                            <div class="terminal-content">
+                                <div class="terminal-line">
+                                    <span class="t-prompt">sooriya@dev:~$</span> <span class="t-cmd">whoami</span>
+                                </div>
+                                <div class="terminal-output t-name">
+                                    &gt; Developer &amp; Relentless Builder
+                                </div>
+                                <div class="terminal-line mt-2">
+                                    <span class="t-prompt">sooriya@dev:~$</span> <span class="t-cmd">cat mindset.json</span>
+                                </div>
+                                <div class="terminal-output t-json"><span class="j-punct">{</span>
+  <span class="j-key">"passion"</span>: <span class="j-str">"Building things that work"</span>,
+  <span class="j-key">"craft"</span>: <span class="j-punct">[</span><span class="j-str">"AI Systems"</span>, <span class="j-str">"Go"</span>, <span class="j-str">"Full-Stack"</span><span class="j-punct">]</span>,
+  <span class="j-key">"status"</span>: <span class="j-str">"Always shipping ⚡"</span>
+<span class="j-punct">}</span></div>
+                                <div class="terminal-line mt-2">
+                                    <span class="t-prompt">sooriya@dev:~$</span> <span class="t-cmd">git commit -m "Keep building"</span>
+                                </div>
+                                <div class="terminal-output" style="color: var(--text-muted); font-size: 11.5px; font-family: var(--font-mono); padding-left: 2px;">
+                                    [main] Keep building
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-7" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
+                <div class="col-lg-7 order-1 order-lg-2" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
                     <div class="hero-text">
+                        <div class="hero-eyebrow">
+                            <span class="sparkle-icon">⚡</span>
+                            <span>BUILDER &amp; DEVELOPER</span>
+                        </div>
                         <h1>Hi, I'm <span class="gradient-text">Sooriya</span></h1>
-                        <div class="typing">
-                            <span id="typed-job-title" class="job"></span>
+                        <div class="typing-container">
+                            <span class="typing-label">Specializing in</span>
+                            <span id="typed-job-title" class="job">AI, Systems &amp; Full-Stack</span>
+                            <span class="typing-cursor"></span>
                         </div>
                         <p class="hero-description">
-                            B.Tech IT student building clean interfaces, full-stack apps, and practical AI tools. I love
-                            creating simple, useful, and well-designed digital experiences.
+                            I build things that make me curious. From AI agents and retrieval engines to backend systems and full-stack apps, I like taking ideas apart, understanding how they work, and rebuilding them into something useful. Always experimenting, always shipping, always breaking something along the way. ⚡
                         </p>
+
+                        <!-- Highlights Quick Stats -->
+                        <div class="hero-stats-row">
+                            <div class="stat-pill">
+                                <span class="stat-val">6+</span>
+                                <span class="stat-lbl">Major Projects</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-val">30+</span>
+                                <span class="stat-lbl">Technologies</span>
+                            </div>
+                            <div class="stat-pill">
+                                <span class="stat-val">&infin;</span>
+                                <span class="stat-lbl">Things to Build</span>
+                            </div>
+                        </div>
+
+                        <!-- Hero CTA buttons -->
                         <div class="btn-group-premium">
-                            <button class="btn-premium btn-primary-premium" onclick="downloadCV()">
-                                <span>Download CV</span>
-                                <div class="btn-shine"></div>
-                            </button>
-                            <a href="ContactSection.html" class="btn-premium btn-secondary-premium">
-                                Contact Me
-                                <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                                    <path
-                                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" />
+                            <a href="#work" class="btn-premium btn-primary-premium" onclick="switchTab('projects')">
+                                <span>Explore My Projects &darr;</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                                    <polyline points="19 12 12 19 5 12"></polyline>
                                 </svg>
+                                <div class="btn-shine"></div>
+                            </a>
+                            <a href="#contact" class="btn-premium btn-secondary-premium">
+                                <span>Get In Touch &rarr;</span>
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </a>
+                        </div>
+
+                        <!-- Social Links Bar -->
+                        <div class="hero-social-bar">
+                            <a href="https://github.com/Sooriya04" target="_blank" rel="noopener noreferrer" class="hero-social-icon" title="GitHub" aria-label="GitHub">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/sooriyab/" target="_blank" rel="noopener noreferrer" class="hero-social-icon" title="LinkedIn" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="mailto:sooriya.work@gmail.com" class="hero-social-icon" title="Email" aria-label="Email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
+                            <a href="https://www.instagram.com/ucdshso/profilecard/?igsh=MWlkc3h6cXZrOTF2NA==" target="_blank" rel="noopener noreferrer" class="hero-social-icon" title="Instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
                             </a>
                         </div>
                     </div>
@@ -84,112 +192,108 @@
     <!-- Work Section -->
     <section class="section" id="work">
         <div class="container">
-            <div class="text-center mb-5">
-                <h2 class="section-title" data-aos="fade-up">My Work</h2>
+            <div class="text-center mb-4">
+                <div class="section-tag" data-aos="fade-up">PORTFOLIO SHOWCASE</div>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="50">Featured Work & Skills</h2>
+                <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
+                    A curated collection of full-stack platforms, autonomous AI systems, and core technical proficiencies.
+                </p>
             </div>
 
-            <div class="toggle-container" data-aos="fade-up" data-aos-delay="100">
+            <!-- Tab Switcher -->
+            <div class="toggle-container" data-aos="fade-up" data-aos-delay="150">
                 <div class="toggle-bar">
                     <div class="toggle-indicator"></div>
-                    <div class="toggle-option active" data-target="projects">Projects</div>
-                    <div class="toggle-option" data-target="skills">Skills</div>
+                    <div class="toggle-option active" data-target="projects">
+                        <i class="fas fa-layer-group me-2"></i>Projects <span class="tab-count-badge">6</span>
+                    </div>
+                    <div class="toggle-option" data-target="skills">
+                        <i class="fas fa-code me-2"></i>Skills <span class="tab-count-badge">30+</span>
+                    </div>
                 </div>
             </div>
 
-            <!-- Projects Section -->
+            <!-- Projects Section (Masonry Layout) -->
             <div id="projects" class="content-section active" data-aos="fade-up" data-aos-delay="200">
                 <!-- Project Category Filters -->
-                <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
-                    <button class="filter-btn active" data-filter="all">All Projects</button>
-                    <button class="filter-btn" data-filter="ai">AI & RAG</button>
-                    <button class="filter-btn" data-filter="fullstack">Full Stack</button>
-                    <button class="filter-btn" data-filter="systems">Systems & CLI</button>
+                <div class="project-filters">
+                    <button class="filter-btn active" data-filter="all">
+                        <span>All Projects</span>
+                        <span class="filter-count">5</span>
+                    </button>
+                    <button class="filter-btn" data-filter="ai">
+                        <span>AI & Agentic RAG</span>
+                        <span class="filter-count">2</span>
+                    </button>
+                    <button class="filter-btn" data-filter="fullstack">
+                        <span>Full-Stack Web</span>
+                        <span class="filter-count">2</span>
+                    </button>
                 </div>
 
-                <div class="projects-grid">
-                    <!-- UnbiasMe -->
-                    <div class="project-card" data-project-id="unbiasme" data-category="ai fullstack" onclick="openProjectDetails('unbiasme')">
+                <!-- Masonry Container -->
+                <div class="projects-masonry" id="projectsMasonryGrid">
+                    <!-- Sizers for Masonry calculation -->
+                    <div class="grid-sizer"></div>
+                    <div class="gutter-sizer"></div>
+
+                    <!-- 1. UnbiasMe -->
+                    <article class="project-card" data-project-id="unbiasme" data-category="ai fullstack" onclick="openProjectDetails('unbiasme')">
                         <div class="project-gradient"></div>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-brain"></i> AI & Full Stack
+                            </span>
+                            <span class="project-status-badge status-open">
+                                <span class="status-dot"></span> GitHub Repo
+                            </span>
+                        </div>
                         <h3 class="project-title">UnbiasMe</h3>
                         <p class="project-description">
-                            A psychology-based web app that helps users discover their personality traits
-                            and cognitive biases using AI. Features quizzes, daily insights, and secure authentication.
+                            A psychology-based web application that helps users discover their personality traits
+                            and cognitive biases using AI. Features dynamic diagnostic questionnaires, daily actionable insights, and secure user sessions.
                         </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>Asynchronous Python NLP backend with Flask session authentication and modular React state context.</span>
+                        </div>
                         <div class="project-tags">
                             <span class="project-tag">AI</span>
                             <span class="project-tag">React</span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Flask</span>
+                            <span class="project-tag">Tailwind</span>
                         </div>
-                        <a href="https://github.com/Sooriya04/unbiasme" target="_blank" class="project-link" onclick="event.stopPropagation()">
-                            View on Github →
-                        </a>
-                    </div>
-                    <!-- TCE Bonafide Application -->
-                    <div class="project-card" data-project-id="tce-bonafide" data-category="fullstack" onclick="openProjectDetails('tce-bonafide')">
-                        <div class="project-gradient"></div>
-                        <h3 class="project-title">TCE Bonafide Application</h3>
-                        <p class="project-description">
-                            A full-stack web application for automating student bonafide certificate requests at
-                            Thiagarajar College of Engineering. Built with React (Vite), Express.js, PostgreSQL, Redis,
-                            and passwordless OTP authentication.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">React</span>
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">Redis</span>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details & Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <a href="https://github.com/Sooriya04/unbiasme" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i> Repository
+                            </a>
                         </div>
-                        <a href="https://github.com/Sooriya04/TCE-Bonafide-Application" target="_blank" class="project-link" onclick="event.stopPropagation()">
-                            View on Github →
-                        </a>
-                    </div>
-                    <!-- Searqon -->
-                    <div class="project-card" data-project-id="searqon" data-category="systems" onclick="openProjectDetails('searqon')">
+                    </article>
+
+                    <!-- 2. Research Copilot -->
+                    <article class="project-card" data-project-id="research-copilot" data-category="ai" onclick="openProjectDetails('research-copilot')">
                         <div class="project-gradient"></div>
-                        <h3 class="project-title">Searqon</h3>
-                        <p class="project-description">
-                            An open-source, self-hosted web intelligence engine that searches, crawls,
-                            extracts, ranks, and synthesizes information from the internet. Built entirely in Go for
-                            maximum performance and minimal resource usage.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Go</span>
-                            <span class="project-tag">Scraping</span>
-                            <span class="project-tag">Web Engine</span>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-robot"></i> Agentic AI & RAG
+                            </span>
+                            <span class="project-status-badge status-dev">
+                                <span class="status-dot"></span> In Development
+                            </span>
                         </div>
-                        <a href="https://sooriya04.github.io/Searqon/" target="_blank" class="project-link" onclick="event.stopPropagation()">
-                            View on Github →
-                        </a>
-                    </div>
-                    <!-- Fogoe -->
-                    <div class="project-card" data-project-id="fogoe" data-category="systems" onclick="openProjectDetails('fogoe')">
-                        <div class="project-gradient"></div>
-                        <h3 class="project-title">Fogoe</h3>
-                        <p class="project-description">
-                            A lightweight Node.js CLI for bootstrapping backend projects with
-                            sensible defaults. Scaffold Express or Fastify setups in seconds
-                            using an interactive, zero-configuration workflow.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag">Node.js</span>
-                            <span class="project-tag">CLI</span>
-                            <span class="project-tag">Express</span>
-                        </div>
-                        <a href="https://www.npmjs.com/package/fogoe" target="_blank" class="project-link" onclick="event.stopPropagation()">
-                            View on npm →
-                        </a>
-                    </div>
-                    <!-- Research Copilot -->
-                    <div class="project-card" data-project-id="research-copilot" data-category="ai" onclick="openProjectDetails('research-copilot')">
-                        <div class="project-gradient"></div>
                         <h3 class="project-title">Research Copilot</h3>
                         <p class="project-description">
-                            An autonomous AI research engineering platform that streamlines the research workflow—from
-                            discoveries and lit review to reproducing experiments and generating LaTeX drafts.
+                            An autonomous AI research engineering platform that streamlines scientific discovery—from literature exploration and paper analysis to executing code environments and synthesizing publication-ready LaTeX drafts.
                         </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-microchip"></i>
+                            <span>Multi-agent coordination with Model Context Protocol (MCP), Knowledge Graphs, and grounded vector retrieval.</span>
+                        </div>
                         <div class="project-tags">
-                            <span class="project-tag development-badge">In Development</span>
                             <span class="project-tag">Python</span>
                             <span class="project-tag">Agentic RAG</span>
                             <span class="project-tag">MCP</span>
@@ -197,48 +301,149 @@
                             <span class="project-tag">Vector DB</span>
                             <span class="project-tag">LLMs</span>
                         </div>
-                        <a href="https://github.com/Sooriya04/Research-Copilot" target="_blank" class="project-link" onclick="event.stopPropagation()">
-                            View on Github →
-                        </a>
-                    </div>
-                    <!-- Sourcebook -->
-                    <div class="project-card" data-project-id="sourcebook" data-category="ai" onclick="openProjectDetails('sourcebook')">
-                        <div class="project-gradient"></div>
-                        <h3 class="project-title">Sourcebook</h3>
-                        <p class="project-description">
-                            A provider-agnostic internet retrieval engine built in Go that aggregates search results,
-                            extracts and normalizes heterogeneous web content, and produces structured, citation-aware
-                            knowledge for Agentic RAG systems.
-                        </p>
-                        <div class="project-tags">
-                            <span class="project-tag development-badge">In Development</span>
-                            <span class="project-tag">Go</span>
-                            <span class="project-tag">BM25</span>
-                            <span class="project-tag">Vector Embeddings</span>
-                            <span class="project-tag">HTML Parsing</span>
-                            <span class="project-tag">REST APIs</span>
-                            <span class="project-tag">Concurrency</span>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details & Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <a href="https://github.com/Sooriya04/Research-Copilot" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
                         </div>
-                        <a href="https://github.com/Sooriya04/Sourcebook" target="_blank" class="project-link" onclick="event.stopPropagation()">
-                            View on Github →
-                        </a>
-                    </div>
+                    </article>
+
+                    <!-- 3. TCE Bonafide Application -->
+                    <article class="project-card" data-project-id="tce-bonafide" data-category="fullstack" onclick="openProjectDetails('tce-bonafide')">
+                        <div class="project-gradient"></div>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-globe"></i> Full-Stack Web
+                            </span>
+                            <span class="project-status-badge status-prod">
+                                <span class="status-dot"></span> Live in Production
+                            </span>
+                        </div>
+                        <h3 class="project-title">TCE Bonafide Application</h3>
+                        <p class="project-description">
+                            A production-grade web application automating student certificate requests for Thiagarajar College of Engineering. Eliminates manual paperwork with passwordless OTP verification, automated PDF generation, and administrator approval workflows.
+                        </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Live in production at bonafideapp.tceapps.in. Passwordless OTP auth, Redis caching layer, Winston structured telemetry, and scheduled automated cleanup.</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">React (Vite)</span>
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">PostgreSQL</span>
+                            <span class="project-tag">Redis</span>
+                            <span class="project-tag">Express</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details & Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <div class="project-footer-links" onclick="event.stopPropagation()">
+                                <a href="https://bonafideapp.tceapps.in" target="_blank" rel="noopener noreferrer" class="project-link project-link-live">
+                                    <i class="fas fa-external-link-alt"></i> Live App
+                                </a>
+                                <a href="https://github.com/Sooriya04/TCE-Bonafide-Application" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. Searqon -->
+                    <article class="project-card" data-project-id="searqon" data-category="systems" onclick="openProjectDetails('searqon')">
+                        <div class="project-gradient"></div>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-search"></i> Systems & Crawling
+                            </span>
+                            <span class="project-status-badge status-open">
+                                <span class="status-dot"></span> Open Source
+                            </span>
+                        </div>
+                        <h3 class="project-title">Searqon</h3>
+                        <p class="project-description">
+                            An open-source, self-hosted web intelligence engine that concurrently searches, crawls, extracts, ranks, and synthesizes information from the internet with minimal resource footprint.
+                        </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>Built in pure Go with goroutines and channels to simultaneously scrape multi-provider indexes with custom density ranking.</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Go</span>
+                            <span class="project-tag">Web Crawling</span>
+                            <span class="project-tag">Search Ranking</span>
+                            <span class="project-tag">Self-Hosted</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details & Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <a href="https://sooriya04.github.io/Searqon/" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
+                                <i class="fas fa-external-link-alt"></i> Live Site
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 6. Fogoe -->
+                    <article class="project-card" data-project-id="fogoe" data-category="systems" onclick="openProjectDetails('fogoe')">
+                        <div class="project-gradient"></div>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-terminal"></i> CLI & Tooling
+                            </span>
+                            <span class="project-status-badge status-npm">
+                                <span class="status-dot"></span> npm Package
+                            </span>
+                        </div>
+                        <h3 class="project-title">Fogoe</h3>
+                        <p class="project-description">
+                            A lightweight Node.js CLI generator for bootstrapping production-ready backend architectures in seconds. Supports Express and Fastify with interactive zero-config prompts, pre-set linting, and logging setups.
+                        </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-box-open"></i>
+                            <span>Interactive Inquirer.js CLI prompts, template file generation, and pluggable architecture published on npm.</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Node.js</span>
+                            <span class="project-tag">CLI</span>
+                            <span class="project-tag">Express</span>
+                            <span class="project-tag">Fastify</span>
+                            <span class="project-tag">npm</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details & Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <a href="https://www.npmjs.com/package/fogoe" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
+                                <i class="fab fa-npm"></i> View on npm
+                            </a>
+                        </div>
+                    </article>
                 </div>
             </div>
 
             <!-- Skills Section -->
             <div id="skills" class="content-section" data-aos="fade-up" data-aos-delay="200">
+                <div class="skills-intro-bar">
+                    <p class="skills-hint">
+                        <i class="fas fa-layer-group me-1"></i> Click any technology card to view architectural scope and official documentation.
+                    </p>
+                </div>
                 <div class="skills-grid" id="skillsGrid">
-
+                    <!-- Populated dynamically via JS -->
                 </div>
             </div>
         </div>
     </section>
 
-    <div class="skill-modal" id="skillModal">
+    <!-- Minimal Skill Modal -->
+    <div class="skill-modal" id="skillModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div class="modal-backdrop" onclick="closeSkillModal()"></div>
         <div class="modal-content">
-            <button class="modal-close" onclick="closeSkillModal()" aria-label="Close">
+            <button class="modal-close" onclick="closeSkillModal()" aria-label="Close Modal">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -247,7 +452,7 @@
 
             <div class="modal-header">
                 <div class="modal-icon-wrapper">
-                    <img id="modalIcon" class="modal-icon" src="" alt="">
+                    <img id="modalIcon" class="modal-icon" src="" alt="Skill Icon">
                 </div>
                 <div>
                     <h3 class="modal-title" id="modalTitle"></h3>
@@ -258,15 +463,13 @@
             <div class="modal-body">
                 <div class="modal-section">
                     <div class="modal-section-title">
-                        <!-- simple icon -->
-                        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M3 4a1 1 0 011-1h8a1 1 0 011 1v2h2a1 1 0 011 1v7a1 1 0 01-1 1H4a1 1 0 01-1-1V4z" />
-                        </svg>
-                        Learning Source
+                        <i class="fas fa-terminal"></i>
+                        <span>Engineering Scope & Application</span>
                     </div>
                     <div class="modal-section-content" id="modalSource"></div>
-                    <a id="modalLink" href="" target="_blank" class="modal-link" style="display:none;">
-                        View Resource →
+                    <a id="modalLink" href="" target="_blank" rel="noopener noreferrer" class="modal-link" style="display:none;">
+                        <span>Official Documentation</span>
+                        <i class="fas fa-external-link-alt ms-1"></i>
                     </a>
                 </div>
             </div>
@@ -274,10 +477,10 @@
     </div>
 
     <!-- Project Detail Modal -->
-    <div class="skill-modal" id="projectModal">
+    <div class="skill-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
         <div class="modal-backdrop" onclick="closeProjectModal()"></div>
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeProjectModal()" aria-label="Close">
+        <div class="modal-content modal-content-lg">
+            <button class="modal-close" onclick="closeProjectModal()" aria-label="Close Project Modal">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <line x1="18" y1="6" x2="6" y2="18"></line>
                     <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -286,56 +489,186 @@
 
             <div class="modal-header">
                 <div>
+                    <span class="project-modal-badge" id="projectModalCategory"></span>
                     <h3 class="modal-title" id="projectModalTitle"></h3>
-                    <p class="modal-subtitle" id="projectModalCategory" style="text-transform: capitalize;"></p>
                 </div>
             </div>
 
             <div class="modal-body">
                 <div class="modal-section">
                     <div class="modal-section-title">
-                        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2H4a1 1 0 110-2V4zm3 1h6v4H7V5zm6 6H7v2h6v-2z" clip-rule="evenodd" />
-                        </svg>
-                        About Project
+                        <i class="fas fa-align-left"></i>
+                        <span>About Project</span>
                     </div>
                     <div class="modal-section-content" id="projectModalDescription"></div>
                 </div>
 
                 <div class="modal-section">
                     <div class="modal-section-title">
-                        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                            <path fill-rule="evenodd" d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.532 1.532 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.532 1.532 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z" clip-rule="evenodd" />
-                        </svg>
-                        Technologies Used
+                        <i class="fas fa-layer-group"></i>
+                        <span>Technologies & Tooling</span>
                     </div>
                     <div class="modal-tags" id="projectModalTags"></div>
                 </div>
 
                 <div class="modal-section" id="projectModalArchitectureSection">
                     <div class="modal-section-title">
-                        <svg width="18" height="18" viewBox="0 0 20 20" fill="currentColor">
-                            <path d="M7 3a1 1 0 000 2h6a1 1 0 100-2H7zM4 7a1 1 0 011-1h10a1 1 0 110 2H5a1 1 0 01-1-1zM2 11a2 2 0 012-2h12a2 2 0 012 2v4a2 2 0 01-2 2H4a2 2 0 01-2-2v-4z" />
-                        </svg>
-                        Key Architecture & Highlights
+                        <i class="fas fa-project-diagram"></i>
+                        <span>Key Architecture & Technical Highlights</span>
                     </div>
-                    <div class="modal-section-content" id="projectModalArchitecture"></div>
+                    <div class="modal-section-content architecture-content" id="projectModalArchitecture"></div>
                 </div>
 
-                <a id="projectModalLink" href="" target="_blank" class="modal-link">
-                    View Project Link →
-                </a>
+                <div class="modal-footer-action">
+                    <a id="projectModalLink" href="" target="_blank" rel="noopener noreferrer" class="modal-action-btn">
+                        <span>Open Repository / Project Link</span>
+                        <i class="fas fa-arrow-up-right-from-square ms-1"></i>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Contact Section -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="text-center mb-5">
+                <div class="section-tag">GET IN TOUCH</div>
+                <h2 class="section-title">Let's Connect &amp; Collaborate</h2>
+                <p class="section-subtitle">
+                    Have an interesting project, question, or just want to chat about AI, systems, or web engineering? Send me a message!
+                </p>
+            </div>
+
+            <div class="contact-card-wrapper">
+                <div class="row g-0">
+                    <!-- Left: Info & Channels -->
+                    <div class="col-lg-5 contact-info-col">
+                        <div class="contact-info-content">
+                            <h3 class="contact-info-title">Let's Talk</h3>
+                            <p class="contact-info-desc">
+                                I'm always open to discussing new software projects, AI engineering challenges, or creative ideas.
+                            </p>
+
+                            <div class="contact-info-list">
+                                <div class="contact-channel-item">
+                                    <div class="channel-icon">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div class="channel-text">
+                                        <span class="channel-label">Email Directly</span>
+                                        <div class="email-value-row">
+                                            <a href="mailto:sooriya.work@gmail.com" class="channel-value">sooriya.work@gmail.com</a>
+                                            <button type="button" class="btn-copy-email" id="copyEmailBtn" onclick="copyEmail()" title="Copy to clipboard">
+                                                <i class="far fa-copy"></i> <span id="copyEmailLabel">Copy</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="contact-channel-item">
+                                    <div class="channel-icon">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div class="channel-text">
+                                        <span class="channel-label">Location</span>
+                                        <span class="channel-value">Tamil Nadu, India</span>
+                                    </div>
+                                </div>
+
+                                <div class="contact-channel-item">
+                                    <div class="channel-icon">
+                                        <i class="fas fa-bolt"></i>
+                                    </div>
+                                    <div class="channel-text">
+                                        <span class="channel-label">Status</span>
+                                        <span class="channel-value text-success font-weight-bold">Available for Projects</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="contact-social-row">
+                                <span class="social-row-label">Find me on:</span>
+                                <div class="social-pills">
+                                    <a href="https://github.com/Sooriya04" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.linkedin.com/in/sooriyab/" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="https://www.instagram.com/ucdshso/profilecard/?igsh=MWlkc3h6cXZrOTF2NA==" target="_blank" rel="noopener noreferrer" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Form -->
+                    <div class="col-lg-7 contact-form-col">
+                        <form class="contact-form-inner" id="portfolioContactForm" action="https://api.web3forms.com/submit" method="POST">
+                            <input type="hidden" name="access_key" value="f91a3bd1-daab-4de0-9518-f9cdbba2b0e1" />
+                            <h3 class="form-heading">Send a Message</h3>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="form-floating-custom">
+                                        <label for="contactName">Your Name</label>
+                                        <input type="text" id="contactName" name="name" class="custom-input" placeholder="John Doe" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-floating-custom">
+                                        <label for="contactEmail">Email Address</label>
+                                        <input type="email" id="contactEmail" name="email" class="custom-input" placeholder="e.g. john@gmail.com" required />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating-custom">
+                                        <label for="contactSubject">Subject</label>
+                                        <input type="text" id="contactSubject" name="subject" class="custom-input" placeholder="Project Inquiry / Hello" required />
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-floating-custom">
+                                        <label for="contactMessage">Your Message</label>
+                                        <textarea id="contactMessage" name="message" class="custom-textarea" rows="4" placeholder="Tell me about what you're building..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-premium btn-primary-premium submit-message-btn" id="contactSubmitBtn">
+                                        <span>Send Message</span>
+                                        <i class="fas fa-paper-plane ms-1"></i>
+                                        <div class="btn-shine"></div>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="form-status-alert" id="formStatusAlert"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <p>© Sooriya <span id="current-year">2025</span>. All rights reserved</p>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <span class="footer-logo">Sooriya</span>
+                <p class="footer-tagline">Crafting resilient full-stack systems and thoughtful AI interfaces.</p>
+            </div>
+            <div class="footer-socials">
+                <a href="https://github.com/Sooriya04" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/sooriyab/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:sooriya.work@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/ucdshso/profilecard/?igsh=MWlkc3h6cXZrOTF2NA==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© Sooriya <span id="current-year">2025</span>. All rights reserved.</p>
+        </div>
     </footer>
 
+    <!-- Scripts: AOS, Masonry, ImagesLoaded, and Custom index.js -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/script/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/script/masonry.pkgd.min.js"></script>
     <script src="assets/script/index.js"></script>
 </body>
 
