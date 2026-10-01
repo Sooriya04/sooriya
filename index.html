@@ -30,20 +30,12 @@
             </svg>
             <span class="nav-label">Home</span>
         </a>
-        <a href="#work" class="nav-item" data-section="work" onclick="switchTab('projects')">
+        <a href="#work" class="nav-item" data-section="work">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
             </svg>
             <span class="nav-label">Projects</span>
-        </a>
-        <a href="#work" class="nav-item" data-section="skills" onclick="switchTab('skills')">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                <polyline points="2 17 12 22 22 17"></polyline>
-                <polyline points="2 12 12 17 22 12"></polyline>
-            </svg>
-            <span class="nav-label">Skills</span>
         </a>
         <a href="#contact" class="nav-item" data-section="contact">
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -194,27 +186,14 @@
         <div class="container">
             <div class="text-center mb-4">
                 <div class="section-tag" data-aos="fade-up">PORTFOLIO SHOWCASE</div>
-                <h2 class="section-title" data-aos="fade-up" data-aos-delay="50">Featured Work & Skills</h2>
+                <h2 class="section-title" data-aos="fade-up" data-aos-delay="50">Featured Projects</h2>
                 <p class="section-subtitle" data-aos="fade-up" data-aos-delay="100">
-                    A curated collection of full-stack platforms, autonomous AI systems, and core technical proficiencies.
+                    A curated collection of full-stack platforms, autonomous AI systems, and production engineering builds.
                 </p>
             </div>
 
-            <!-- Tab Switcher -->
-            <div class="toggle-container" data-aos="fade-up" data-aos-delay="150">
-                <div class="toggle-bar">
-                    <div class="toggle-indicator"></div>
-                    <div class="toggle-option active" data-target="projects">
-                        <i class="fas fa-layer-group me-2"></i>Projects <span class="tab-count-badge">6</span>
-                    </div>
-                    <div class="toggle-option" data-target="skills">
-                        <i class="fas fa-code me-2"></i>Skills <span class="tab-count-badge">30+</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Projects Section (Masonry Layout) -->
-            <div id="projects" class="content-section active" data-aos="fade-up" data-aos-delay="200">
+            <!-- Projects Section -->
+            <div id="projects" class="content-section active" data-aos="fade-up" data-aos-delay="150">
                 <!-- Project Category Filters -->
                 <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">
@@ -425,56 +404,8 @@
                 </div>
             </div>
 
-            <!-- Skills Section -->
-            <div id="skills" class="content-section" data-aos="fade-up" data-aos-delay="200">
-                <div class="skills-intro-bar">
-                    <p class="skills-hint">
-                        <i class="fas fa-layer-group me-1"></i> Click any technology card to view architectural scope and official documentation.
-                    </p>
-                </div>
-                <div class="skills-grid" id="skillsGrid">
-                    <!-- Populated dynamically via JS -->
-                </div>
-            </div>
         </div>
     </section>
-
-    <!-- Minimal Skill Modal -->
-    <div class="skill-modal" id="skillModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-        <div class="modal-backdrop" onclick="closeSkillModal()"></div>
-        <div class="modal-content">
-            <button class="modal-close" onclick="closeSkillModal()" aria-label="Close Modal">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
-
-            <div class="modal-header">
-                <div class="modal-icon-wrapper">
-                    <img id="modalIcon" class="modal-icon" src="" alt="Skill Icon">
-                </div>
-                <div>
-                    <h3 class="modal-title" id="modalTitle"></h3>
-                    <p class="modal-subtitle" id="modalCategory" style="display:none;"></p>
-                </div>
-            </div>
-
-            <div class="modal-body">
-                <div class="modal-section">
-                    <div class="modal-section-title">
-                        <i class="fas fa-terminal"></i>
-                        <span>Engineering Scope & Application</span>
-                    </div>
-                    <div class="modal-section-content" id="modalSource"></div>
-                    <a id="modalLink" href="" target="_blank" rel="noopener noreferrer" class="modal-link" style="display:none;">
-                        <span>Official Documentation</span>
-                        <i class="fas fa-external-link-alt ms-1"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Project Detail Modal -->
     <div class="skill-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="projectModalTitle">
