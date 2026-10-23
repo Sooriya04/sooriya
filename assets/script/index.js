@@ -157,10 +157,10 @@ const projectsDetailsData = {
         title: "Searqon",
         category: "Systems & Search Intelligence",
         description: "An open-source, self-hosted web intelligence engine written in pure Go. Concurrently scrapes, crawls, normalizes, ranks, and synthesizes unstructured information across the web with ultra-low latency.",
-        tags: ["Go", "Concurrency", "Web Crawling", "Search Ranking", "Self-Hosted"],
-        architecture: "• Goroutine and channel concurrency architecture to dispatch parallel queries across multiple web indexes.\n• Custom keyword-density ranking algorithms with minimal heap memory footprint.\n• HTML normalization and content cleaning pipeline designed for low-resource environments.\n• Zero external runtime dependencies; ships as a single statically compiled binary.",
-        link: "https://sooriya04.github.io/Searqon/",
-        linkText: "Open Live Site"
+        tags: ["Go", "Concurrency", "Web Crawling", "Search Ranking", "Self-Hosted", "Docker Hub"],
+        architecture: "• Goroutine and channel concurrency architecture to dispatch parallel queries across multiple web indexes.\n• Custom keyword-density ranking algorithms with minimal heap memory footprint.\n• HTML normalization and content cleaning pipeline designed for low-resource environments.\n• Official Docker image published to Docker Hub (sooriya04/searqon) for zero-dependency container deployment.\n• Zero external runtime dependencies; ships as a single statically compiled binary.",
+        docker: "https://hub.docker.com/r/sooriya04/searqon",
+        github: "https://github.com/Sooriya04/Searqon"
     },
     fogoe: {
         title: "Fogoe",
@@ -170,6 +170,24 @@ const projectsDetailsData = {
         architecture: "• Interactive CLI prompts powered by Inquirer.js with zero initial configuration required.\n• Templating engine generating clean folder structures, Dockerfiles, and ESLint/Prettier configs.\n• Published to the official npm registry with rapid startup and cross-platform compatibility.\n• Pluggable template architecture supporting database integrations (Postgres, MongoDB, Redis).",
         link: "https://www.npmjs.com/package/fogoe",
         linkText: "View on npm"
+    },
+    'paper-drift': {
+        title: "paper-drift",
+        category: "WebAssembly & AI Document Engine",
+        description: "A high-density, zero-Python, zero-Chromium WebAssembly document parser, HTML renderer, and Markdown engine with GFM tables and math preservation. Slashes AI agent token ingestion costs by 90%+ without requiring heavy Python containers or headless browser microservices.",
+        tags: ["WebAssembly (WASM)", "JavaScript", "MuPDF", "Agentic RAG", "Markdown Engine", "CLI", "npm Package", "Node.js"],
+        architecture: "• Zero-Python, zero-Chromium architecture executing compiled WebAssembly directly inside V8 runtimes (Node.js, Bun, browsers) under 20 KB package footprint.\n• Recursive XY-Cut spatial ordering algorithm resolving multi-column papers and eliminating column interweaving.\n• Geometric table discovery and gutter slicing into GitHub Flavored Markdown (GFM) pipe tables with universal unicode math exponent normalization.\n• Dual-layer HTML mode pairing high-DPI background raster rendering with a 1:1 selectable, searchable text overlay.\n• Published to npm (paper-drift) and built specifically for LLM and Agentic RAG token ingestion, processing pages in under 50ms with 100% local privacy.",
+        npm: "https://www.npmjs.com/package/paper-drift",
+        github: "https://github.com/Sooriya04/Paper-Drift"
+    },
+    sourcebook: {
+        title: "SourceBook",
+        category: "Local AI & Agentic RAG",
+        description: "An open-source, local-first NotebookLM + Perplexity hybrid platform. Unifies concurrent metasearch across SearXNG & DuckDuckGo, high-speed document parsing, and grounded contextual synthesis with strict numerical citations (`[1]`, `[2]`) using local Ollama or cloud LLMs.",
+        tags: ["Go", "React 19", "Vite", "Agentic RAG", "SQLite WAL", "Docker", "Ollama", "SearXNG"],
+        architecture: "• High-performance Go backend dispatching concurrent worker pools for multi-provider metasearch and web scraping.\n• Integrated Searqon text normalization and clean markdown extraction pipeline for web content and documents.\n• Local-first persistence layer powered by SQLite in WAL mode with embedded vector similarity search.\n• Pluggable LLM inference engine supporting local Ollama models (gemma2, phi4-mini, llama3.3) and cloud APIs (OpenAI, Groq, NVIDIA NIM).\n• Full study suite synthesizing automated flashcards, quizzes, study guides, and interactive mind maps with strict verifiable citations.",
+        link: "https://github.com/Sooriya04/Sourcebook",
+        linkText: "View GitHub Repository"
     },
     'research-copilot': {
         title: "Research Copilot",
@@ -221,26 +239,35 @@ function openProjectDetails(projectId) {
     const modalFooter = document.querySelector('.modal-footer-action');
     if (modalFooter) {
         modalFooter.innerHTML = '';
+        let hasPrimary = false;
+
+        const appendBtn = (href, label, iconClass) => {
+            const btn = document.createElement('a');
+            btn.href = href;
+            btn.target = '_blank';
+            btn.rel = 'noopener noreferrer';
+            btn.className = 'modal-action-btn';
+            if (hasPrimary) {
+                btn.style.background = 'var(--card-bg-subtle)';
+                btn.style.color = 'var(--text-primary)';
+                btn.style.border = '1px solid var(--border-color)';
+            }
+            btn.innerHTML = `<span>${label}</span> <i class="${iconClass} ms-1"></i>`;
+            modalFooter.appendChild(btn);
+            hasPrimary = true;
+        };
+
         if (project.link) {
-            const liveBtn = document.createElement('a');
-            liveBtn.href = project.link;
-            liveBtn.target = '_blank';
-            liveBtn.rel = 'noopener noreferrer';
-            liveBtn.className = 'modal-action-btn';
-            liveBtn.innerHTML = `<span>${project.linkText || 'Open Project Link'}</span> <i class="fas fa-external-link-alt ms-1"></i>`;
-            modalFooter.appendChild(liveBtn);
+            appendBtn(project.link, project.linkText || 'Open Project Link', 'fas fa-external-link-alt');
+        }
+        if (project.npm) {
+            appendBtn(project.npm, 'View on npm', 'fab fa-npm');
+        }
+        if (project.docker) {
+            appendBtn(project.docker, 'Docker Hub', 'fab fa-docker');
         }
         if (project.github) {
-            const ghBtn = document.createElement('a');
-            ghBtn.href = project.github;
-            ghBtn.target = '_blank';
-            ghBtn.rel = 'noopener noreferrer';
-            ghBtn.className = 'modal-action-btn';
-            ghBtn.style.background = 'var(--card-bg-subtle)';
-            ghBtn.style.color = 'var(--text-primary)';
-            ghBtn.style.border = '1px solid var(--border-color)';
-            ghBtn.innerHTML = `<span>View GitHub Repository</span> <i class="fab fa-github ms-1"></i>`;
-            modalFooter.appendChild(ghBtn);
+            appendBtn(project.github, 'View GitHub Repository', 'fab fa-github');
         }
     }
 

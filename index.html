@@ -128,7 +128,7 @@
                         <!-- Highlights Quick Stats -->
                         <div class="hero-stats-row">
                             <div class="stat-pill">
-                                <span class="stat-val">6+</span>
+                                <span class="stat-val">7+</span>
                                 <span class="stat-lbl">Major Projects</span>
                             </div>
                             <div class="stat-pill">
@@ -198,15 +198,19 @@
                 <div class="project-filters">
                     <button class="filter-btn active" data-filter="all">
                         <span>All Projects</span>
-                        <span class="filter-count">5</span>
+                        <span class="filter-count">7</span>
                     </button>
                     <button class="filter-btn" data-filter="ai">
                         <span>AI & Agentic RAG</span>
-                        <span class="filter-count">2</span>
+                        <span class="filter-count">4</span>
+                    </button>
+                    <button class="filter-btn" data-filter="systems">
+                        <span>Systems & Tools</span>
+                        <span class="filter-count">4</span>
                     </button>
                     <button class="filter-btn" data-filter="fullstack">
                         <span>Full-Stack Web</span>
-                        <span class="filter-count">2</span>
+                        <span class="filter-count">3</span>
                     </button>
                 </div>
 
@@ -290,7 +294,86 @@
                         </div>
                     </article>
 
-                    <!-- 3. TCE Bonafide Application -->
+                    <!-- 3. SourceBook -->
+                    <article class="project-card" data-project-id="sourcebook" data-category="ai systems fullstack" onclick="openProjectDetails('sourcebook')">
+                        <div class="project-gradient"></div>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-book-open"></i> Local AI &amp; RAG
+                            </span>
+                            <span class="project-status-badge status-open">
+                                <span class="status-dot"></span> Open Source
+                            </span>
+                        </div>
+                        <h3 class="project-title">SourceBook</h3>
+                        <p class="project-description">
+                            An open-source, local-first NotebookLM + Perplexity hybrid platform. Unifies concurrent metasearch (SearXNG &amp; DuckDuckGo), document ingestion, and grounded contextual synthesis with strict numerical citations.
+                        </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-layer-group"></i>
+                            <span>Go concurrency backend, React 19 UI, SQLite WAL vector store, Searqon content scraping, and multi-provider LLMs (Ollama, OpenAI, Groq).</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">Go</span>
+                            <span class="project-tag">React 19</span>
+                            <span class="project-tag">Agentic RAG</span>
+                            <span class="project-tag">SQLite WAL</span>
+                            <span class="project-tag">Ollama</span>
+                            <span class="project-tag">Docker</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details &amp; Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <a href="https://github.com/Sooriya04/Sourcebook" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
+                                <i class="fab fa-github"></i> GitHub
+                            </a>
+                        </div>
+                    </article>
+
+                    <!-- 4. paper-drift -->
+                    <article class="project-card" data-project-id="paper-drift" data-category="ai systems" onclick="openProjectDetails('paper-drift')">
+                        <div class="project-gradient"></div>
+                        <div class="project-card-header">
+                            <span class="project-category-pill">
+                                <i class="fas fa-file-code"></i> WASM & AI Engine
+                            </span>
+                            <span class="project-status-badge status-open">
+                                <span class="status-dot"></span> Open Source
+                            </span>
+                        </div>
+                        <h3 class="project-title">paper-drift</h3>
+                        <p class="project-description">
+                            Zero-Python, zero-Chromium WebAssembly document parser, HTML renderer, and Markdown engine with GFM tables and math. Slashes AI Agent token ingestion costs by 90%+.
+                        </p>
+                        <div class="project-highlight-box">
+                            <i class="fas fa-bolt"></i>
+                            <span>Compiled WebAssembly runtime in V8 under 20 KB. Multi-column XY-cut spatial ordering and geometric table reconstruction in &lt;50ms.</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="project-tag">WebAssembly</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">MuPDF</span>
+                            <span class="project-tag">Agentic RAG</span>
+                            <span class="project-tag">CLI</span>
+                            <span class="project-tag">npm</span>
+                        </div>
+                        <div class="project-card-footer">
+                            <span class="project-details-btn">
+                                Details &amp; Specs <i class="fas fa-arrow-right"></i>
+                            </span>
+                            <div class="project-footer-links" onclick="event.stopPropagation()">
+                                <a href="https://www.npmjs.com/package/paper-drift" target="_blank" rel="noopener noreferrer" class="project-link project-link-live" title="npm Package">
+                                    <i class="fab fa-npm"></i> npm
+                                </a>
+                                <a href="https://github.com/Sooriya04/Paper-Drift" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5. TCE Bonafide Application -->
                     <article class="project-card" data-project-id="tce-bonafide" data-category="fullstack" onclick="openProjectDetails('tce-bonafide')">
                         <div class="project-gradient"></div>
                         <div class="project-card-header">
@@ -331,7 +414,7 @@
                         </div>
                     </article>
 
-                    <!-- 5. Searqon -->
+                    <!-- 6. Searqon -->
                     <article class="project-card" data-project-id="searqon" data-category="systems" onclick="openProjectDetails('searqon')">
                         <div class="project-gradient"></div>
                         <div class="project-card-header">
@@ -354,19 +437,25 @@
                             <span class="project-tag">Go</span>
                             <span class="project-tag">Web Crawling</span>
                             <span class="project-tag">Search Ranking</span>
+                            <span class="project-tag">Docker</span>
                             <span class="project-tag">Self-Hosted</span>
                         </div>
                         <div class="project-card-footer">
                             <span class="project-details-btn">
                                 Details & Specs <i class="fas fa-arrow-right"></i>
                             </span>
-                            <a href="https://sooriya04.github.io/Searqon/" target="_blank" rel="noopener noreferrer" class="project-link" onclick="event.stopPropagation()">
-                                <i class="fas fa-external-link-alt"></i> Live Site
-                            </a>
+                            <div class="project-footer-links" onclick="event.stopPropagation()">
+                                <a href="https://hub.docker.com/r/sooriya04/searqon" target="_blank" rel="noopener noreferrer" class="project-link project-link-live" title="Docker Hub">
+                                    <i class="fab fa-docker"></i> Docker Hub
+                                </a>
+                                <a href="https://github.com/Sooriya04/Searqon" target="_blank" rel="noopener noreferrer" class="project-link">
+                                    <i class="fab fa-github"></i> GitHub
+                                </a>
+                            </div>
                         </div>
                     </article>
 
-                    <!-- 6. Fogoe -->
+                    <!-- 7. Fogoe -->
                     <article class="project-card" data-project-id="fogoe" data-category="systems" onclick="openProjectDetails('fogoe')">
                         <div class="project-gradient"></div>
                         <div class="project-card-header">

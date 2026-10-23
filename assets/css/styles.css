@@ -721,7 +721,7 @@ body:not(.dark-mode) .toggle-indicator {
   width: 24px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1040px) {
   .grid-sizer,
   .project-card {
     width: calc((100% - 24px) / 2);
@@ -747,7 +747,7 @@ body:not(.dark-mode) .toggle-indicator {
 .project-card {
   background: var(--card-bg);
   border-radius: 16px;
-  padding: 26px;
+  padding: 24px 20px 20px;
   box-shadow: var(--card-shadow);
   transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   position: relative;
@@ -927,19 +927,22 @@ body:not(.dark-mode) .toggle-indicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 8px;
   padding-top: 14px;
   border-top: 1px solid var(--border-color);
   margin-top: auto;
 }
 
 .project-details-btn {
-  font-size: 12.5px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-accent);
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  transition: gap 0.2s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: gap 0.2s ease, color 0.2s ease;
 }
 
 .project-card:hover .project-details-btn {
@@ -951,13 +954,15 @@ body:not(.dark-mode) .toggle-indicator {
   align-items: center;
   gap: 5px;
   color: var(--text-secondary);
-  font-size: 12px;
+  font-size: 11.5px;
   font-weight: 600;
   text-decoration: none;
-  padding: 4px 10px;
+  padding: 4px 9px;
   border-radius: 16px;
   background: var(--badge-bg);
   border: 1px solid var(--border-color);
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: all 0.2s ease;
 }
 
@@ -971,7 +976,8 @@ body:not(.dark-mode) .toggle-indicator {
   display: flex;
   align-items: center;
   gap: 6px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  flex-shrink: 0;
 }
 
 .project-link-live {
@@ -982,6 +988,16 @@ body:not(.dark-mode) .toggle-indicator {
 
 .project-link-live:hover {
   opacity: 0.88;
+}
+
+@media (max-width: 480px) {
+  .project-card-footer {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .project-footer-links {
+    margin-left: auto;
+  }
 }
 
 /* ===================================================
@@ -1495,6 +1511,8 @@ body:not(.dark-mode) .toggle-indicator {
   margin-top: 8px;
   display: flex;
   justify-content: flex-end;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 /* Content Sections Tab Switching */
