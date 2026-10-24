@@ -71,7 +71,7 @@ const navItems = document.querySelectorAll('.nav-bar .nav-item[data-section]');
 window.addEventListener('scroll', () => {
     const scrollY = window.pageYOffset || document.documentElement.scrollTop;
 
-    const sections = ['hero', 'work', 'contact'];
+    const sections = ['hero', 'work', 'research', 'contact'];
     let currentSection = 'hero';
 
     sections.forEach(secId => {
