@@ -1018,9 +1018,18 @@ body:not(.dark-mode) .toggle-indicator {
   padding: 80px 0 100px;
 }
 
+.publications-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .publication-card {
   max-width: 900px;
   margin: 0 auto;
+  width: 100%;
   background: var(--card-bg);
   border: 1px solid var(--border-color);
   border-radius: 20px;
@@ -1059,6 +1068,12 @@ body:not(.dark-mode) .toggle-indicator {
   background: rgba(30, 144, 255, 0.1);
   color: #1e90ff;
   border: 1px solid rgba(30, 144, 255, 0.25);
+}
+
+.pub-badge-ieee {
+  background: rgba(2, 132, 199, 0.12);
+  color: #0284c7;
+  border: 1px solid rgba(2, 132, 199, 0.28);
 }
 
 .pub-badge-course {
