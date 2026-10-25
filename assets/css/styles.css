@@ -543,6 +543,7 @@ body:not(.dark-mode) .moon-icon {
 .section {
   padding: 90px 2rem;
   position: relative;
+  scroll-margin-top: 90px;
 }
 
 .section-tag {
@@ -1016,6 +1017,9 @@ body:not(.dark-mode) .toggle-indicator {
 .research-section {
   position: relative;
   padding: 80px 0 100px;
+  scroll-margin-top: 90px;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .publications-list {
@@ -1024,6 +1028,8 @@ body:not(.dark-mode) .toggle-indicator {
   gap: 24px;
   max-width: 900px;
   margin: 0 auto;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .publication-card {
@@ -1037,6 +1043,8 @@ body:not(.dark-mode) .toggle-indicator {
   box-shadow: var(--card-shadow);
   position: relative;
   overflow: hidden;
+  opacity: 1 !important;
+  visibility: visible !important;
   transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
 }
 

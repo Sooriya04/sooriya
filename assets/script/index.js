@@ -448,6 +448,9 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
                 e.preventDefault();
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 history.pushState(null, null, href);
+                if (typeof AOS !== 'undefined') {
+                    setTimeout(() => AOS.refresh(), 200);
+                }
             }
         }
     });
